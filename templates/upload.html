@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>File Upload</title>
-    <link rel="stylesheet" href="../static/styles/mdl/material.min.css">
-    <script src="../static/styles/mdl/material.min.css"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-
-<body>
-    <form method="post" action="{{url_for('upload')}}" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Button
-        </button>
-    </form>
-</body>
-
-</html>
+{% extends 'base.html' %}
+    
+{% block content %}
+<form method="post" action="{{url_for('upload')}}" enctype="multipart/form-data">
+    {% block title %} Upload {% endblock %}
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Button
+    </button>
+</form>
+{% endblock %}
