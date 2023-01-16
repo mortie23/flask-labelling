@@ -28,11 +28,6 @@ def labelling():
     return render_template('labelling.html')
 
 
-@app.route('/')
-def index():
-    return render_template('upload.html')
-
-
 @app.route('/upload', methods=['POST'])
 def upload():
     file = request.files['file']
@@ -41,6 +36,8 @@ def upload():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",
-            port=5123,
-            debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=5123,
+        debug=True
+    )
