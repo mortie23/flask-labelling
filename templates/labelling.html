@@ -5,7 +5,32 @@
 {% block title %} Labelling {% endblock %}
 </div>
 <form method="post" action="{{url_for('labelling')}}" enctype="multipart/form-data">
-
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">ID</th>
+        <th>Text</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">1</td>
+        <td>This was a very good shop</td>
+        <td>Positive</td>
+      </tr>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">2</td>
+        <td>This was a terrible shop</td>
+        <td>Negative</td>
+      </tr>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">3</td>
+        <td>Not too bad at all</td>
+        <td>Negative</td>
+      </tr>
+    </tbody>
+  </table>
 </form>
 
 {% endblock %}
