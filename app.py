@@ -1,16 +1,21 @@
 from flask import Flask, request, render_template, current_app
-from flask_sqlalchemy import SQLAlchemy
+import sqlite3
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-db = SQLAlchemy(app)
 
 
-class Labels(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    commentText = db.Column(db.String(100))
-    labelML = db.Column(db.String(100))
-    labelUser = db.Column(db.String(100))
+def get_db_connection():
+    conn = sqlite3.connect('data.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+@app.route('/category')
+def index():
+    conn = get_db_connection()
+    categories = conn.execute('SELECT * FROM category').fetchall()
+    conn.close()
+    return render_template('category.html', categories=categories)
 
 
 @app.route('/home')
