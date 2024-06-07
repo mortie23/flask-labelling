@@ -33,4 +33,4 @@ Press CTRL+C to quit
 
 Example of a screen sourcing data from the SQLite DB.
 
-[](./docs/img/screenshot.png)
+![](./docs/img/screenshot.png)
